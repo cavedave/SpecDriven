@@ -1,6 +1,8 @@
-# Tensorix
+# SpecDriven — Tensorix workshop
 
-Image-to-text experiments using the [Tensorix API](https://docs.tensorix.ai/). Target vision model: `qwen/qwen3-vl-235b-a22b-instruct`.
+Spec-driven development workshop using the [Tensorix API](https://docs.tensorix.ai/). Target vision model: `qwen/qwen3-vl-235b-a22b-instruct`.
+
+Repo: [github.com/cavedave/SpecDriven](https://github.com/cavedave/SpecDriven)
 
 Development uses [Spec Kit](https://github.com/github/spec-kit): constitution → specify → plan → tasks → implement → test/review → refine spec → repeat.
 
@@ -12,7 +14,8 @@ https://leanpub.com/spec-driven-development-build-with-ai
 From the project root, create and activate a venv:
 
 ```bash
-cd /Users/davidcurran/Documents/tensorix
+git clone https://github.com/cavedave/SpecDriven.git
+cd SpecDriven
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
