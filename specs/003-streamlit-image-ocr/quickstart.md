@@ -26,11 +26,11 @@ pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-1. Upload `Japan-Firebombing.jpg` from repo root
+1. Upload `images/2026.06.09_170002748320260609132561.jpg.png` (Lidl receipt)
 2. Confirm file size still shows
 3. Click **Extract text**
 4. Wait for spinner (may take 30–120 seconds)
-5. **Expected**: Extracted text includes city names (e.g. TOKYO, HIROSHIMA) and/or B-29 caption
+5. **Expected**: Extracted text includes **Lidl**, **Tyrrelstown**, item names, and total **46.50 EUR**
 
 ## No-upload check
 

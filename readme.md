@@ -8,6 +8,9 @@ Development uses [Spec Kit](https://github.com/github/spec-kit): constitution �
 
 https://leanpub.com/spec-driven-development-build-with-ai
 
+## Workshop slides
+
+Open `Tensorix.key` in Keynote (macOS) for the accompanying talk.
 
 ## Setup (virtual environment)
 
@@ -69,16 +72,18 @@ python -m streamlit run app.py
 
 Use `python -m streamlit` (not bare `streamlit`) so the app runs with the same Python as your venv. If you see `ModuleNotFoundError: dotenv`, you are likely using Homebrew’s Streamlit instead of the venv.
 
-1. Upload a JPEG or PNG (e.g. `Japan-Firebombing.jpg` from repo root).
+1. Upload a JPEG or PNG — use the workshop test receipt at `images/2026.06.09_170002748320260609132561.jpg.png` (Lidl grocery receipt).
 2. Confirm file name and size are shown.
 3. Click **Extract text** and wait for the spinner to finish.
 4. Read extracted text in the text area below.
+
+**Expected output** includes recognizable receipt text, e.g. **Lidl**, **Tyrrelstown**, item names (Peri Chicken, Cucumber, etc.), and a total around **46.50 EUR**.
 
 Requires `.env` with `TENSORIX_API_KEY` and optionally `TENSORIX_MODEL` (default: `qwen/qwen3-vl-235b-a22b-instruct`).
 
 See [specs/003-streamlit-image-ocr/quickstart.md](specs/003-streamlit-image-ocr/quickstart.md).
 
-File name and size (Feature 001) still display after upload. See [specs/001-image-file-size/quickstart.md](specs/001-image-file-size/quickstart.md).
+File name and size (Feature 001) still display after upload. Try the same test image: `images/2026.06.09_170002748320260609132561.jpg.png`. See [specs/001-image-file-size/quickstart.md](specs/001-image-file-size/quickstart.md).
 
 ## Test
 
