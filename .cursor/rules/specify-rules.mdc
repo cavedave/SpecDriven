@@ -1,0 +1,15 @@
+---
+alwaysApply: true
+---
+
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan at
+[specs/003-streamlit-image-ocr/plan.md](specs/003-streamlit-image-ocr/plan.md).
+
+**Stack**: Streamlit `app.py` + `tensorix_client.extract_text_from_image`, Qwen VL via Tensorix.
+
+**Run**: `streamlit run app.py` | **Test**: `pytest`
+
+**Secrets**: `.env` with `TENSORIX_API_KEY`, `TENSORIX_MODEL`.
+<!-- SPECKIT END -->
