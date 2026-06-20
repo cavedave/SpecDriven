@@ -2,15 +2,19 @@
 
 Spec-driven development workshop using the [Tensorix API](https://docs.tensorix.ai/). Target vision model: `qwen/qwen3-vl-235b-a22b-instruct`.
 
-Repo: [github.com/cavedave/SpecDriven](https://github.com/cavedave/SpecDriven)
+
 
 Development uses [Spec Kit](https://github.com/github/spec-kit): constitution → specify → plan → tasks → implement → test/review → refine spec → repeat.
 
+Good book on spec driven development
 https://leanpub.com/spec-driven-development-build-with-ai
 
 ## Workshop slides
 
-Open `Tensorix.key` in Keynote (macOS) for the accompanying talk.
+- **Documentation:** [docs/](docs/) — workshop slides PDF and overview (add `docs/workshop-slides.pdf` after Keynote export)
+- **Keynote source:** `Tensorix.key` in the repo root (macOS)
+
+Further reading: [Spec-Driven Development (Leanpub)](https://leanpub.com/spec-driven-development-build-with-ai)
 
 ## Setup (virtual environment)
 
