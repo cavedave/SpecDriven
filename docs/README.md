@@ -13,15 +13,18 @@ The PDF will be added here after export from Keynote. Until then, clone the repo
 
 ## Spec-driven development loop
 
-The workshop walks through three features in this repo using [Spec Kit](https://github.com/github/spec-kit):
+The **GitHub starter** is intentionally bare: only vision + smoke test + Spec Kit tooling. During the workshop you create each feature folder with [Spec Kit](https://github.com/github/spec-kit):
 
-1. **001** — Streamlit image upload + file size (`specs/001-image-file-size/`)
-2. **002** — Tensorix text hello world (`specs/002-tensorix-hello/`)
-3. **003** — Image OCR in Streamlit (`specs/003-streamlit-image-ocr/`)
+| Step | What you build | Spec folder (created live) |
+|------|----------------|----------------------------|
+| **001** | Receipt ingest — upload + file size | `specs/001-image-file-size/` |
+| Smoke test | Tensorix text hello | README — `hello_tensorix.py` (already in repo) |
+| **002** | Receipt OCR — **Extract text** | `specs/002-receipt-ocr/` |
+| **003** *(optional)* | Purchase analysis | `specs/003-purchase-analysis/` |
 
 Loop: `constitution → specify → plan → tasks → implement → test/review → refine → repeat`
 
-See also [constitution](../.specify/memory/constitution.md) and feature quickstarts under `specs/*/quickstart.md`.
+See [constitution](../.specify/memory/constitution.md) and product vision [specs/000-receipt-reader/vision.md](../specs/000-receipt-reader/vision.md).
 
 ## Further reading
 

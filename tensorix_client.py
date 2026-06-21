@@ -1,8 +1,7 @@
-"""Tensorix API client (OpenAI-compatible)."""
+"""Tensorix API client (OpenAI-compatible) — text calls for smoke test."""
 
 from __future__ import annotations
 
-import base64
 import os
 from pathlib import Path
 
@@ -11,9 +10,6 @@ from openai import AuthenticationError, OpenAI
 
 TENSORIX_BASE_URL = "https://api.tensorix.ai/v1"
 DEFAULT_MODEL = "qwen/qwen3-vl-235b-a22b-instruct"
-OCR_PROMPT = (
-    "Extract all visible text from this image. Preserve labels and captions."
-)
 
 _REPO_ROOT = Path(__file__).resolve().parent
 
@@ -46,15 +42,6 @@ def create_client(api_key: str | None = None) -> OpenAI:
     return OpenAI(api_key=key, base_url=TENSORIX_BASE_URL)
 
 
-def mime_from_filename(name: str) -> str:
-    ext = Path(name).suffix.lower()
-    if ext in (".jpg", ".jpeg"):
-        return "image/jpeg"
-    if ext == ".png":
-        return "image/png"
-    return "image/jpeg"
-
-
 def ask(question: str, *, client: OpenAI | None = None) -> str:
     if not question.strip():
         raise TensorixError("Question must not be empty.")
@@ -67,53 +54,6 @@ def ask(question: str, *, client: OpenAI | None = None) -> str:
             model=model,
             messages=[{"role": "user", "content": question}],
             max_tokens=256,
-            temperature=0,
-        )
-    except AuthenticationError as exc:
-        raise TensorixError(
-            "Tensorix authentication failed. Check TENSORIX_API_KEY in .env."
-        ) from exc
-    except Exception as exc:
-        raise TensorixError(f"Tensorix API request failed: {exc}") from exc
-
-    if not response.choices:
-        raise TensorixError("Tensorix returned no choices.")
-
-    content = response.choices[0].message.content
-    if not content or not content.strip():
-        raise TensorixError("Tensorix returned an empty response.")
-
-    return content.strip()
-
-
-def extract_text_from_image(
-    image_bytes: bytes,
-    mime_type: str,
-    *,
-    client: OpenAI | None = None,
-) -> str:
-    if not image_bytes:
-        raise TensorixError("Image data must not be empty.")
-
-    b64 = base64.b64encode(image_bytes).decode("ascii")
-    data_url = f"data:{mime_type};base64,{b64}"
-
-    openai_client = client or create_client()
-    model = get_model()
-
-    try:
-        response = openai_client.chat.completions.create(
-            model=model,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {"type": "text", "text": OCR_PROMPT},
-                        {"type": "image_url", "image_url": {"url": data_url}},
-                    ],
-                }
-            ],
-            max_tokens=4096,
             temperature=0,
         )
     except AuthenticationError as exc:

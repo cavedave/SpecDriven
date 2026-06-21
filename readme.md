@@ -2,23 +2,31 @@
 
 Spec-driven development workshop using the [Tensorix API](https://docs.tensorix.ai/). Target vision model: `qwen/qwen3-vl-235b-a22b-instruct`.
 
-
-
 Development uses [Spec Kit](https://github.com/github/spec-kit): constitution → specify → plan → tasks → implement → test/review → refine spec → repeat.
 
-Good book on spec driven development
-https://leanpub.com/spec-driven-development-build-with-ai
+Good book on spec driven development: [Spec-Driven Development (Leanpub)](https://leanpub.com/spec-driven-development-build-with-ai)
+
+## What’s in this repo (starter)
+
+| Pre-built (don’t SDD these) | You build live in the workshop |
+|-----------------------------|--------------------------------|
+| Spec Kit + [constitution](.specify/memory/constitution.md) | **Slice 1** — receipt upload + file size |
+| Product vision [`specs/000-receipt-reader/vision.md`](specs/000-receipt-reader/vision.md) | **Slice 2** — OCR (**Extract text**) |
+| Smoke test: `hello_tensorix.py`, `tensorix_client.py` | **Slice 3** *(optional)* — purchase analysis |
+| Workshop test receipt in `images/` | `app.py`, specs under `specs/001-*`, `specs/002-*`, tests |
+
+Clone this repo at the **start** of the workshop. Each slice adds code and a new folder under `specs/` via `/speckit.specify` → plan → tasks → implement.
 
 ## Workshop slides
 
-- **Documentation:** [docs/](docs/) — workshop slides PDF and overview (add `docs/workshop-slides.pdf` after Keynote export)
+- **Documentation:** [docs/](docs/) — workshop overview (add `docs/workshop-slides.pdf` after Keynote export)
 - **Keynote source:** `Tensorix.key` in the repo root (macOS)
-
-Further reading: [Spec-Driven Development (Leanpub)](https://leanpub.com/spec-driven-development-build-with-ai)
 
 ## Setup (virtual environment)
 
-From the project root, create and activate a venv:
+Download or clone from [github.com/cavedave/SpecDriven](https://github.com/cavedave/SpecDriven) — **Code** → **Download ZIP**:
+
+![Download the repo from GitHub — Code menu](images/getcode.png)
 
 ```bash
 git clone https://github.com/cavedave/SpecDriven.git
@@ -28,26 +36,20 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-To leave the venv:
-
-```bash
-deactivate
-```
+To leave the venv: `deactivate`
 
 ## Secrets
-
-Copy the example env file and add your key (never commit `.env`):
 
 ```bash
 cp .env.example .env
 # Edit .env: set TENSORIX_API_KEY
 ```
 
-Get a key from [app.tensorix.ai](https://app.tensorix.ai).
+Get a key from [app.tensorix.ai](https://app.tensorix.ai). Never commit `.env`.
 
-## Tensorix hello world
+## Smoke test (before slice 1)
 
-Prove API connectivity with a one-line question:
+Prove Tensorix connectivity — pre-built, not an SDD slice:
 
 ```bash
 source .venv/bin/activate
@@ -56,38 +58,16 @@ python hello_tensorix.py
 
 Expected: stdout includes **Paris**.
 
-Custom question:
+## Workshop flow
 
-```bash
-python hello_tensorix.py --question "What is the capital of Ireland?"
-```
+1. **Slice 1** — `/speckit.specify` for receipt ingest (upload jpg/png, show name + size). No API key needed.
+2. **Smoke test** — run `hello_tensorix.py` if not already.
+3. **Slice 2** — `/speckit.specify` for OCR (**Extract text** button, Tensorix vision, spinner, errors).
+4. **Slice 3** *(if time)* — analyze purchases (good/warning items).
 
-See [specs/002-tensorix-hello/quickstart.md](specs/002-tensorix-hello/quickstart.md).
+Test receipt for all slices: `images/2026.06.09_170002748320260609132561.jpg.png` (Lidl, ~1.3 MB).
 
-## Image text extraction (Streamlit)
-
-Upload an image and extract visible text with the Tensorix vision model:
-
-```bash
-source .venv/bin/activate
-pip install -r requirements.txt
-python -m streamlit run app.py
-```
-
-Use `python -m streamlit` (not bare `streamlit`) so the app runs with the same Python as your venv. If you see `ModuleNotFoundError: dotenv`, you are likely using Homebrew’s Streamlit instead of the venv.
-
-1. Upload a JPEG or PNG — use the workshop test receipt at `images/2026.06.09_170002748320260609132561.jpg.png` (Lidl grocery receipt).
-2. Confirm file name and size are shown.
-3. Click **Extract text** and wait for the spinner to finish.
-4. Read extracted text in the text area below.
-
-**Expected output** includes recognizable receipt text, e.g. **Lidl**, **Tyrrelstown**, item names (Peri Chicken, Cucumber, etc.), and a total around **46.50 EUR**.
-
-Requires `.env` with `TENSORIX_API_KEY` and optionally `TENSORIX_MODEL` (default: `qwen/qwen3-vl-235b-a22b-instruct`).
-
-See [specs/003-streamlit-image-ocr/quickstart.md](specs/003-streamlit-image-ocr/quickstart.md).
-
-File name and size (Feature 001) still display after upload. Try the same test image: `images/2026.06.09_170002748320260609132561.jpg.png`. See [specs/001-image-file-size/quickstart.md](specs/001-image-file-size/quickstart.md).
+Run the app (after slice 1): `python -m streamlit run app.py` — use `python -m streamlit`, not bare `streamlit`, so the venv Python is used.
 
 ## Test
 
@@ -95,3 +75,5 @@ File name and size (Feature 001) still display after upload. Try the same test i
 source .venv/bin/activate
 pytest -v
 ```
+
+(Smoke-test client tests only at starter; slice tasks add more.)

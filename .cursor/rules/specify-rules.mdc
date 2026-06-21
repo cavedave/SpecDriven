@@ -3,13 +3,7 @@ alwaysApply: true
 ---
 
 <!-- SPECKIT START -->
-For additional context about technologies to be used, project structure,
-shell commands, and other important information, read the current plan at
-[specs/003-streamlit-image-ocr/plan.md](specs/003-streamlit-image-ocr/plan.md).
+Workshop starter repo — participants build features via Spec Kit. Pre-built: smoke test only (`hello_tensorix.py`, `tensorix_client.ask`). Product vision: [specs/000-receipt-reader/vision.md](specs/000-receipt-reader/vision.md).
 
-**Stack**: Streamlit `app.py` + `tensorix_client.extract_text_from_image`, Qwen VL via Tensorix.
-
-**Run**: `streamlit run app.py` | **Test**: `pytest`
-
-**Secrets**: `.env` with `TENSORIX_API_KEY`, `TENSORIX_MODEL`.
+**Run**: `python hello_tensorix.py` (smoke) | `python -m streamlit run app.py` (after slice 1) | **Test**: `pytest`
 <!-- SPECKIT END -->
