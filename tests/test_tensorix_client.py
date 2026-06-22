@@ -7,6 +7,18 @@ import tensorix_client
 from tensorix_client import TensorixError, ask, get_api_key
 
 
+def test_get_base_url_default(monkeypatch):
+    monkeypatch.delenv("TENSORIX_BASE_URL", raising=False)
+    with patch.object(tensorix_client, "load_dotenv"):
+        assert tensorix_client.get_base_url() == "https://api.tensorx.ai/v1"
+
+
+def test_get_base_url_from_env(monkeypatch):
+    monkeypatch.setenv("TENSORIX_BASE_URL", "https://custom.example/v1")
+    with patch.object(tensorix_client, "load_dotenv"):
+        assert tensorix_client.get_base_url() == "https://custom.example/v1"
+
+
 def test_get_api_key_missing(monkeypatch):
     monkeypatch.delenv("TENSORIX_API_KEY", raising=False)
     with patch.object(tensorix_client, "load_dotenv"):

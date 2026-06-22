@@ -29,4 +29,4 @@ See [constitution](../.specify/memory/constitution.md) and product vision [specs
 ## Further reading
 
 - [Spec-Driven Development (Leanpub)](https://leanpub.com/spec-driven-development-build-with-ai)
-- [Tensorix API docs](https://docs.tensorix.ai/)
+- [TensorX API docs](https://docs.tensorx.ai/)

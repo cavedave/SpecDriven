@@ -8,7 +8,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from openai import AuthenticationError, OpenAI
 
-TENSORIX_BASE_URL = "https://api.tensorix.ai/v1"
+TENSORIX_BASE_URL_DEFAULT = "https://api.tensorx.ai/v1"
 DEFAULT_MODEL = "qwen/qwen3-vl-235b-a22b-instruct"
 
 _REPO_ROOT = Path(__file__).resolve().parent
@@ -37,9 +37,15 @@ def get_model() -> str:
     return os.environ.get("TENSORIX_MODEL", DEFAULT_MODEL).strip() or DEFAULT_MODEL
 
 
+def get_base_url() -> str:
+    load_env()
+    url = os.environ.get("TENSORIX_BASE_URL", TENSORIX_BASE_URL_DEFAULT).strip()
+    return url or TENSORIX_BASE_URL_DEFAULT
+
+
 def create_client(api_key: str | None = None) -> OpenAI:
     key = api_key if api_key is not None else get_api_key()
-    return OpenAI(api_key=key, base_url=TENSORIX_BASE_URL)
+    return OpenAI(api_key=key, base_url=get_base_url())
 
 
 def ask(question: str, *, client: OpenAI | None = None) -> str:

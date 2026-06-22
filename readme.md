@@ -1,6 +1,6 @@
 # SpecDriven — Tensorix workshop
 
-Spec-driven development workshop using the [Tensorix API](https://docs.tensorix.ai/). Target vision model: `qwen/qwen3-vl-235b-a22b-instruct`.
+Spec-driven development workshop using the [TensorX API](https://docs.tensorx.ai/). Target vision model: `qwen/qwen3-vl-235b-a22b-instruct`.
 
 Development uses [Spec Kit](https://github.com/github/spec-kit): constitution → specify → plan → tasks → implement → test/review → refine spec → repeat.
 
@@ -47,7 +47,7 @@ cp .env.example .env
 # Edit .env: set TENSORIX_API_KEY
 ```
 
-Get a key from [app.tensorix.ai](https://app.tensorix.ai). Never commit `.env`.
+Get a key from [app.tensorx.ai](https://app.tensorx.ai). Never commit `.env`.
 
 ## Smoke test (before slice 1)
 
