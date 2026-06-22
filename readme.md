@@ -19,8 +19,10 @@ Clone this repo at the **start** of the workshop. Each slice adds code and a new
 
 ## Workshop slides
 
-- **Documentation:** [docs/](docs/) — workshop overview (add `docs/workshop-slides.pdf` after Keynote export)
-- **Keynote source:** `Tensorix.key` in the repo root (macOS)
+In [docs/](docs/) — PDF and macOS Keynote versions:
+
+- **PDF:** [docs/Tensorix.pdf](docs/Tensorix.pdf)
+- **Keynote:** `docs/Tensorix.key` (macOS, editable source)
 
 ## Setup (virtual environment)
 
@@ -60,8 +62,8 @@ Expected: stdout includes **Paris**.
 
 ## Workshop flow
 
-1. **Slice 1** — `/speckit.specify` for receipt ingest (upload jpg/png, show name + size). No API key needed.
-2. **Smoke test** — run `hello_tensorix.py` if not already.
+1. **Smoke test** — run `hello_tensorix.py` (see below). Pre-built; not an SDD slice.
+2. **Slice 1** — `/speckit.specify` for receipt ingest (upload jpg/png, show name + size). No API key needed.
 3. **Slice 2** — `/speckit.specify` for OCR (**Extract text** button, Tensorix vision, spinner, errors).
 4. **Slice 3** *(if time)* — analyze purchases (good/warning items).
 
