@@ -64,22 +64,29 @@ Expected: stdout includes **Paris**.
 
 
 1. **Smoke test** — run `hello_tensorx.py` (see below). Pre-built; not an SDD slice.
-2. **Slice 1** — `/speckit.specify` 2. /speckit.specify
+2. **Slice 1** — `/speckit.specify` 
 
 Receipt reader slice 1: Streamlit app where I upload a receipt image (jpg/png). Show file name and size in bytes and human-readable KB/MB. No API calls, no Pillow. Standard app.py layout.
 
 3. /speckit.plan
-/speckit.tasks and /speckit.implement
+
+/speckit.tasks 
+
+ /speckit.implement
 
 python -m streamlit run app.py
 
 
 
-3. **Slice 2** — `/speckit.specify` f
+3. **Slice 2** — `/speckit.specify` 
 Receipt reader slice 2 (OCR): User uploads a receipt image (jpg/png) — slice 1 ingest (file name + size) must remain. Add an explicit "Extract text" button that sends the uploaded image to Tensorix via tensorix_client.extract_text_from_image() using the configured vision model (TENSORIX_MODEL from .env). Show extracted text on the page. Use st.spinner during the request and clear errors for missing key or API failures. Do not call the API until the user clicks Extract text. No Pillow. Reuse tensorix_client.py for all API access. Assumes hello_tensorix.py smoke test has passed.
 
 6. /speckit.plan
-/speckit.tasks and /speckit.implement
+
+/speckit.tasks 
+
+ /speckit.implement
+
 4. **Slice 3** *(if time)* — analyze purchases (good/warning items).
 
 Test receipt for all slices: `images/2026.06.09_170002748320260609132561.jpg.png` (Lidl, ~1.3 MB).
