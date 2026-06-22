@@ -1,15 +1,13 @@
 # Workshop documentation
 
-Materials for the SpecDriven Tensorix workshop.
+Materials for the SpecDriven TensorX workshop.
 
 ## Slides
 
 | File | Description |
 |------|-------------|
-| [workshop-slides.pdf](workshop-slides.pdf) | Talk slides (PDF export from Keynote) |
-| `Tensorix.key` (repo root) | Keynote source — macOS only |
-
-The PDF will be added here after export from Keynote. Until then, clone the repo and open `Tensorix.key` locally.
+| [Tensorx.pdf](Tensorx.pdf) | Talk slides (PDF export from Keynote) |
+| `Tensorx.key` | Keynote source — macOS only |
 
 ## Spec-driven development loop
 
@@ -18,7 +16,7 @@ The **GitHub starter** is intentionally bare: only vision + smoke test + Spec Ki
 | Step | What you build | Spec folder (created live) |
 |------|----------------|----------------------------|
 | **001** | Receipt ingest — upload + file size | `specs/001-image-file-size/` |
-| Smoke test | Tensorix text hello | README — `hello_tensorix.py` (already in repo) |
+| Smoke test | TensorX text hello | README — `hello_tensorx.py` (already in repo) |
 | **002** | Receipt OCR — **Extract text** | `specs/002-receipt-ocr/` |
 | **003** *(optional)* | Purchase analysis | `specs/003-purchase-analysis/` |
 

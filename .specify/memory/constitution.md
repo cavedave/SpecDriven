@@ -10,7 +10,7 @@ Sync Impact Report
 - Follow-up TODOs: None
 -->
 
-# Tensorix Constitution
+# TensorX Constitution
 
 ## Core Principles
 
@@ -57,7 +57,7 @@ reduce debugging time.
 ### VI. No Unrequested External Services
 
 Do not add external services (databases, queues, hosted auth, extra APIs) unless
-explicitly requested in the feature spec. The Tensorix API is allowed when the feature
+explicitly requested in the feature spec. The TensorX API is allowed when the feature
 requires inference; do not add others by default.
 
 **Rationale**: Scope stays controlled; infrastructure creep is a common source of

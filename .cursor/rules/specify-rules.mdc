@@ -3,7 +3,7 @@ alwaysApply: true
 ---
 
 <!-- SPECKIT START -->
-Workshop starter repo — participants build features via Spec Kit. Pre-built: smoke test only (`hello_tensorix.py`, `tensorix_client.ask`). Product vision: [specs/000-receipt-reader/vision.md](specs/000-receipt-reader/vision.md).
+Workshop starter repo — participants build features via Spec Kit. Pre-built: smoke test only (`hello_tensorx.py`, `tensorx_client.ask`). Product vision: [specs/000-receipt-reader/vision.md](specs/000-receipt-reader/vision.md).
 
-**Run**: `python hello_tensorix.py` (smoke) | `python -m streamlit run app.py` (after slice 1) | **Test**: `pytest`
+**Run**: `python hello_tensorx.py` (smoke) | `python -m streamlit run app.py` (after slice 1) | **Test**: `pytest`
 <!-- SPECKIT END -->
