@@ -40,6 +40,11 @@ pip install -r requirements.txt
 
 To leave the venv: `deactivate`
 
+## Talk to TensorX coding agent with cline
+
+https://api.tensorx.ai/v1
+
+Guide in deck
 ## Secrets
 
 ```bash
@@ -79,7 +84,7 @@ python -m streamlit run app.py
 
 
 3. **Slice 2** — `/speckit.specify` 
-Receipt reader slice 2 (OCR): User uploads a receipt image (jpg/png) — slice 1 ingest (file name + size) must remain. Add an explicit "Extract text" button that sends the uploaded image to TensorX via tensorx_client.extract_text_from_image() using the configured vision model (TENSORX_MODEL from .env). Show extracted text on the page. Use st.spinner during the request and clear errors for missing key or API failures. Do not call the API until the user clicks Extract text. No Pillow. Reuse tensorx_client.py for all API access. Assumes hello_tensorx.py smoke test has passed.
+Receipt reader slice 2 (OCR): User uploads a receipt image (jpg/png) — slice 1 ingest (file name + size) do not have to remain. Once the image is uploaded send the uploaded image to TensorX via tensorx_client.extract_text_from_image() using the configured vision model (TENSORX_MODEL from .env). Show extracted text on the page. Use st.spinner during the request and clear errors for missing key or API failures. Do not call the API until the user clicks Extract text. No Pillow. Reuse tensorx_client.py for all API access. Assumes hello_tensorx.py smoke test has passed.  use_column_width parameter in streamlit has been deprecated utilize the width parameter instead.
 
 6. /speckit.plan
 
